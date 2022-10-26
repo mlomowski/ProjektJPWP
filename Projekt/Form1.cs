@@ -19,7 +19,7 @@ namespace Projekt
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //ruch o -10
+            //ruch
             move(-10);
           
         }

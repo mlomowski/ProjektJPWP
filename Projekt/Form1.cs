@@ -21,7 +21,7 @@ namespace Projekt
         {
             //ruch o -10 
             move(-10);
-          
+          //test
         }
         void move(int speed) {
             pictureBox1.Left += speed;

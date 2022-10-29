@@ -24,11 +24,20 @@ namespace Projekt
           //test
         }
         void move(int speed) {
-            pictureBox1.Left += speed;
-            pictureBox2.Left += speed;
-            pictureBox3.Left += speed;
-            pictureBox4.Left += speed;    
-            pictureBox5.Left += speed;
+            if (pictureBox1.Left >= 0) { pictureBox1.Left += speed; }
+            else pictureBox1.Left = 1280;
+
+            if (pictureBox2.Left >= 0) { pictureBox2.Left += speed; }
+            else pictureBox2.Left = 1280;
+
+            if (pictureBox3.Left >= 0) { pictureBox3.Left += speed; }
+            else pictureBox3.Left = 1280;
+
+            if (pictureBox4.Left >= 0) { pictureBox4.Left += speed; }
+            else pictureBox4.Left = 1280;
+
+            if (pictureBox5.Left >= 0) { pictureBox5.Left += speed; }
+            else pictureBox5.Left = 1280;
 
         }
     }

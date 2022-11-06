@@ -16,11 +16,10 @@ namespace Projekt
         {
             InitializeComponent();
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             //ruch o -10 
-            move(-10);
+            move(-10);  
           //test
         }
         void move(int speed) {
@@ -41,10 +40,24 @@ namespace Projekt
             
             if (pictureBox6.Left >= -180) { pictureBox6.Left += speed; }
             else pictureBox6.Left = 1280;
+           
+            if (Kanister.Left >= -180) { Kanister.Left += speed; }
+            else Kanister.Left = 1280;
+          
+
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
+            this.Cursor = new Cursor(Cursor.Current.Handle);
+            Auto.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
+            
+           
+        }
+
+        private void Kanister_MouseMove(object sender, MouseEventArgs e)
+        {
+            Kanister.Left = 1280;
 
         }
     }

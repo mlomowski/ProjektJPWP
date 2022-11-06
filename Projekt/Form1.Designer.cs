@@ -41,6 +41,8 @@ namespace Projekt
             this.Auto = new System.Windows.Forms.PictureBox();
             this.Kanister = new System.Windows.Forms.PictureBox();
             this.Punkty = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -143,12 +145,36 @@ namespace Projekt
             this.Punkty.TabIndex = 4;
             this.Punkty.Text = "Punkty= 0";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(314, 921);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(298, 55);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Paliwo= 100";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(477, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(359, 73);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Koniec Gry";
+            this.label2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Punkty);
             this.Controls.Add(this.Kanister);
             this.Controls.Add(this.Auto);
@@ -187,6 +213,8 @@ namespace Projekt
         private System.Windows.Forms.PictureBox Auto;
         private System.Windows.Forms.PictureBox Kanister;
         private System.Windows.Forms.Label Punkty;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

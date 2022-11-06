@@ -17,18 +17,31 @@ namespace Projekt
             InitializeComponent();
         }
         public static int pkt = 0;
-        public static int paliwo = 100;
+        public static double paliwo = 100;
+        public static int speed = 10;
         private void timer1_Tick(object sender, EventArgs e)
         {
             //ruch o -10 
-            
-            int speed = 10;
-            droga(-speed);
-            kanister(-speed);
-            przeszkoda(-speed);
+            paliwo-=1;
+            if (paliwo < 1)
+            {
+                gameover(pkt);
+            }
+            else {
+                label1.Text = "Paliwo= " + paliwo;
 
-          //test
+                droga(-speed);
+                kanister(-speed);
+                przeszkoda(-speed);
+            }
+      
         }
+        void gameover(int pkt) {
+            speed = 0;
+            label1.Text = "Paliwo= 0";
+            label2.Visible = true;
+        }
+
         //ruch pasow
         void droga(int speed) {
             if (pictureBox1.Left >= -180) { pictureBox1.Left += speed; }
@@ -64,9 +77,14 @@ namespace Projekt
 
             if (Auto.Bounds.IntersectsWith(Kanister.Bounds)) {
                 pkt++;
-                paliwo += 30;
+                if (paliwo > 70)
+                {
+                    paliwo = 100;
+                }
+                else { paliwo += 30; }
+                
                 Punkty.Text = "Punkty= " + pkt;
-                x = 1280;
+                x = 1680;
                 y = rand.Next(100, 700);
                 Kanister.Location = new Point(x, y);
             }

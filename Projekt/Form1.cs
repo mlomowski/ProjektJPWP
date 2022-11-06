@@ -16,19 +16,19 @@ namespace Projekt
         {
             InitializeComponent();
         }
-
-
-        int speed = 10;
+        public static int pkt = 0;
+        public static int paliwo = 100;
         private void timer1_Tick(object sender, EventArgs e)
         {
             //ruch o -10 
+            
+            int speed = 10;
             droga(-speed);
             kanister(-speed);
             przeszkoda(-speed);
+
           //test
         }
-        
-        
         //ruch pasow
         void droga(int speed) {
             if (pictureBox1.Left >= -180) { pictureBox1.Left += speed; }
@@ -51,17 +51,28 @@ namespace Projekt
         }
 
 
-        //zawijanie kanistrow
+        //zawijanie kanistrow i interakcje z samochodem
         Random rand = new Random();
-        int x, y;
+        int x, y; 
         void kanister(int speed) {
             if (Kanister.Left >= -180) { Kanister.Left += speed; }
             else {
-                x= 1280;
+                x= 2500;
                 y = rand.Next(100, 700);
                 Kanister.Location = new Point(x, y);
-            } 
+            }
+
+            if (Auto.Bounds.IntersectsWith(Kanister.Bounds)) {
+                pkt++;
+                paliwo += 30;
+                Punkty.Text = "Punkty= " + pkt;
+                x = 1280;
+                y = rand.Next(100, 700);
+                Kanister.Location = new Point(x, y);
+            }
         }
+
+
         //zawijanie przeszkod
         void przeszkoda(int speed) {
         
@@ -73,12 +84,6 @@ namespace Projekt
         {
             this.Cursor = new Cursor(Cursor.Current.Handle);
             Auto.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
-        }
-        private void Kanister_MouseMove(object sender, MouseEventArgs e)
-        {
-            x = 1280;
-            y = rand.Next(100, 700);
-            Kanister.Location = new Point(x, y);
         }
     }
 }

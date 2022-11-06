@@ -40,6 +40,7 @@ namespace Projekt
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.Auto = new System.Windows.Forms.PictureBox();
             this.Kanister = new System.Windows.Forms.PictureBox();
+            this.Punkty = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -125,13 +126,22 @@ namespace Projekt
             // 
             this.Kanister.BackColor = System.Drawing.Color.Transparent;
             this.Kanister.Image = ((System.Drawing.Image)(resources.GetObject("Kanister.Image")));
-            this.Kanister.Location = new System.Drawing.Point(907, 223);
+            this.Kanister.Location = new System.Drawing.Point(907, 256);
             this.Kanister.Name = "Kanister";
             this.Kanister.Size = new System.Drawing.Size(241, 204);
             this.Kanister.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Kanister.TabIndex = 3;
             this.Kanister.TabStop = false;
-            this.Kanister.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Kanister_MouseMove);
+            // 
+            // Punkty
+            // 
+            this.Punkty.AutoSize = true;
+            this.Punkty.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Punkty.Location = new System.Drawing.Point(12, 921);
+            this.Punkty.Name = "Punkty";
+            this.Punkty.Size = new System.Drawing.Size(248, 55);
+            this.Punkty.TabIndex = 4;
+            this.Punkty.Text = "Punkty= 0";
             // 
             // Form1
             // 
@@ -139,6 +149,7 @@ namespace Projekt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.Controls.Add(this.Punkty);
             this.Controls.Add(this.Kanister);
             this.Controls.Add(this.Auto);
             this.Controls.Add(this.pictureBox5);
@@ -161,6 +172,7 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Kanister)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -174,6 +186,7 @@ namespace Projekt
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox Auto;
         private System.Windows.Forms.PictureBox Kanister;
+        private System.Windows.Forms.Label Punkty;
     }
 }
 

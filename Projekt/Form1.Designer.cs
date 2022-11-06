@@ -56,6 +56,7 @@ namespace Projekt
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Enabled = false;
             this.pictureBox2.Location = new System.Drawing.Point(490, 478);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(190, 40);
@@ -65,6 +66,7 @@ namespace Projekt
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Enabled = false;
             this.pictureBox3.Location = new System.Drawing.Point(720, 478);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(190, 40);
@@ -74,6 +76,7 @@ namespace Projekt
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.Enabled = false;
             this.pictureBox4.Location = new System.Drawing.Point(958, 478);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(190, 40);
@@ -83,6 +86,7 @@ namespace Projekt
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.Enabled = false;
             this.pictureBox5.Location = new System.Drawing.Point(1200, 478);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(190, 40);
@@ -97,6 +101,7 @@ namespace Projekt
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Enabled = false;
             this.pictureBox1.Location = new System.Drawing.Point(237, 478);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(190, 40);
@@ -106,6 +111,7 @@ namespace Projekt
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
+            this.pictureBox6.Enabled = false;
             this.pictureBox6.Location = new System.Drawing.Point(-15, 478);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(190, 40);
@@ -128,7 +134,7 @@ namespace Projekt
             // 
             this.Kanister.BackColor = System.Drawing.Color.Transparent;
             this.Kanister.Image = ((System.Drawing.Image)(resources.GetObject("Kanister.Image")));
-            this.Kanister.Location = new System.Drawing.Point(907, 256);
+            this.Kanister.Location = new System.Drawing.Point(1011, -50);
             this.Kanister.Name = "Kanister";
             this.Kanister.Size = new System.Drawing.Size(241, 204);
             this.Kanister.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

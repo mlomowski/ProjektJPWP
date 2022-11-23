@@ -19,6 +19,7 @@ namespace Projekt
         public static int pkt = 0;
         public static double paliwo = 100;
         public static int speed = 10;
+        public static int speed_enemie = speed+=10;
         private void timer1_Tick(object sender, EventArgs e)
         {
             //ruch o -10 
@@ -40,6 +41,8 @@ namespace Projekt
             speed = 0;
             label1.Text = "Paliwo= 0";
             label2.Visible = true;
+            Auto.Visible = false;
+            timer1.Enabled = false;
         }
 
         //ruch pasow
@@ -70,7 +73,7 @@ namespace Projekt
         void kanister(int speed) {
             if (Kanister.Left >= -180) { Kanister.Left += speed; }
             else {
-                x= 2500;
+                x= 2200;
                 y = rand.Next(100, 700);
                 Kanister.Location = new Point(x, y);
             }
@@ -87,12 +90,16 @@ namespace Projekt
                 x = 1680;
                 y = rand.Next(100, 700);
                 Kanister.Location = new Point(x, y);
+                if (Kanister.Location== Przeszkoda.Location)
+                {
+                    Kanister.Location = new Point(x, y);
+                }
             }
         }
 
-        void przeszkoda(int speed)
+        void przeszkoda(int enemie_speed)
         {
-            if (Przeszkoda.Left >= -180) { Przeszkoda.Left += speed; }
+            if (Przeszkoda.Left >= -180) { Przeszkoda.Left += enemie_speed; }
             else
             {
                 x = 1500;
@@ -106,8 +113,6 @@ namespace Projekt
             }
 
         }
-
-
 
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)

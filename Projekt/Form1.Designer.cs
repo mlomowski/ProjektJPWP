@@ -178,6 +178,7 @@ namespace Projekt
             // Przeszkoda
             // 
             this.Przeszkoda.BackColor = System.Drawing.Color.White;
+            this.Przeszkoda.Enabled = false;
             this.Przeszkoda.Location = new System.Drawing.Point(936, 621);
             this.Przeszkoda.Name = "Przeszkoda";
             this.Przeszkoda.Size = new System.Drawing.Size(316, 66);

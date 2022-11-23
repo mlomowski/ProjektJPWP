@@ -43,6 +43,7 @@ namespace Projekt
             this.Punkty = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Przeszkoda = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -51,6 +52,7 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Kanister)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Przeszkoda)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -173,12 +175,22 @@ namespace Projekt
             this.label2.Text = "Koniec Gry";
             this.label2.Visible = false;
             // 
+            // Przeszkoda
+            // 
+            this.Przeszkoda.BackColor = System.Drawing.Color.White;
+            this.Przeszkoda.Location = new System.Drawing.Point(936, 621);
+            this.Przeszkoda.Name = "Przeszkoda";
+            this.Przeszkoda.Size = new System.Drawing.Size(316, 66);
+            this.Przeszkoda.TabIndex = 6;
+            this.Przeszkoda.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.Controls.Add(this.Przeszkoda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Punkty);
@@ -203,6 +215,7 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Kanister)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Przeszkoda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +234,7 @@ namespace Projekt
         private System.Windows.Forms.Label Punkty;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox Przeszkoda;
     }
 }
 

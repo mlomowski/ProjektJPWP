@@ -62,7 +62,7 @@ namespace Projekt
             if (pictureBox6.Left >= -180) { pictureBox6.Left += speed; }
             else pictureBox6.Left = 1280;
         }
-
+        
 
         //zawijanie kanistrow i interakcje z samochodem
         Random rand = new Random();
@@ -90,13 +90,25 @@ namespace Projekt
             }
         }
 
+        void przeszkoda(int speed)
+        {
+            if (Przeszkoda.Left >= -180) { Przeszkoda.Left += speed; }
+            else
+            {
+                x = 1500;
+                y = rand.Next(100, 700);
+                Przeszkoda.Location = new Point(x, y);
+            }
 
-        //zawijanie przeszkod
-        void przeszkoda(int speed) {
-        
-        
-        
+            if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
+            {
+                gameover(pkt);
+            }
+
         }
+
+
+
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {

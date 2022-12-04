@@ -18,7 +18,7 @@ namespace Projekt
         {
             this.kanister = new Kanister();
             this.pkt = 0;
-            this.gracz = new Gracz(100);
+            this.gracz = new Gracz();
             this.speed = 20;
         }
 
@@ -63,14 +63,49 @@ namespace Projekt
             return stanPaliwa;
         }
 
-      
 
+        int temp =0;
         public Color zebranoKanister()
         {
             Color color = Color.Violet;
             pkt++;
-            gracz.setPaliwo();
-            return color;
+            temp++;
+            double temp2 = gracz.getPaliwo();
+          
+            //bonusy
+            if (temp == 10 && temp2 < 150)
+            {
+                gracz.Bonus(150);
+                return color;
+            }
+
+            if (temp == 20 && temp2 < 180)
+            {
+                gracz.Bonus(180);
+                return color;
+            }
+
+            if (temp == 30 && temp2 < 200)
+            {
+                gracz.Bonus(200);
+                temp = 0;
+                return color;
+            }
+
+
+            if (temp2 > 70 && temp2 < 100)
+            {
+                gracz.Bonus(100);
+                return color;
+            }
+            else if (temp2 < 100)
+            {
+                gracz.setPaliwo(kanister.zebrano());
+                return color;
+            }
+            else
+                return color;
+
         }
 
         public int gameOver()

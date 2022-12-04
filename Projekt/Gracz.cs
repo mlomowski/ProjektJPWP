@@ -9,10 +9,9 @@ namespace Projekt
     public class Gracz
     {
         public double stanPaliwa;
-        public Kanister kanister;
-        public Gracz(double paliwo)
+        public Gracz()
         {
-            this.stanPaliwa = paliwo;
+            this.stanPaliwa = 100;
         }
         
         public void zmianaPaliwa()
@@ -26,39 +25,16 @@ namespace Projekt
             return stanPaliwa;
         }
 
-        int temp = 0;
-        public void setPaliwo()
+        
+        public void Bonus(double liczba)
         {
-            temp++;
-
-            if (stanPaliwa > 70)
-            {
-                stanPaliwa = 100;
-            }
-
-           else
-            {
-                stanPaliwa += kanister.zebrano();
-            }
-
-            if (temp == 10 && stanPaliwa<150)
-            {
-                stanPaliwa = 150;
-
-            }
-            if (temp == 20 && stanPaliwa < 180)
-            {
-                stanPaliwa = 180;
-
-            }
-            if (temp == 30 && stanPaliwa < 200)
-            {
-                stanPaliwa = 200;
-                temp = 0;
-            }
-
+            stanPaliwa = liczba;
         }
 
+        public void setPaliwo(double liczba)
+        {
+            stanPaliwa += liczba;
+        }
 
     }
 }

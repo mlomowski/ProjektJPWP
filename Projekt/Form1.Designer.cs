@@ -138,7 +138,7 @@ namespace Projekt
             // 
             this.Kanister.BackColor = System.Drawing.Color.Transparent;
             this.Kanister.Image = ((System.Drawing.Image)(resources.GetObject("Kanister.Image")));
-            this.Kanister.Location = new System.Drawing.Point(1200, 126);
+            this.Kanister.Location = new System.Drawing.Point(814, 192);
             this.Kanister.Name = "Kanister";
             this.Kanister.Size = new System.Drawing.Size(241, 204);
             this.Kanister.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

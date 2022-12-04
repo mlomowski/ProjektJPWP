@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    class Kanister
-    {
+    public class Kanister
+        {
         int paliwo;
-        int pkt;
-
+        int szybkosc;
         public Kanister()
         {
             this.paliwo = 30;
-            this.pkt = 1;
+            this.szybkosc = 30;
+        }
+
+
+        public double zebrano() {
+            return paliwo; 
+        }
+
+        public int sprawdzSzybkosc()
+        {
+            return szybkosc;
         }
 
     }

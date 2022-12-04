@@ -6,19 +6,15 @@ namespace Projekt
 {
     public partial class Form1 : Form
     {
-        public static int pkt = 0;
-        public static double paliwo = 100;
-        public static int speed = 20;
-        public static int enemie_speed = 20;
         public Game Game;
-        public Gracz gracz;
+        Random rand = new Random();
+        int x, y;
 
 
         public Form1()
         {
             InitializeComponent();
             this.Game = new Game();
-            
         }
    
         private void timer1_Tick(object sender, EventArgs e)
@@ -29,7 +25,8 @@ namespace Projekt
                 label1.ForeColor = Game.kolorPaliwa();
                 label1.Text = "Paliwo= " + Math.Round(Game.sprawdzPaliwo());
                 Game.Update();
-                droga(-Game.sprawdzSzybkość());
+                droga(-Game.sprawdzSzybkoscGry());
+                kanister(-Game.sprawdzSzybkoscKanistra());
             }
             else {
                 gameover(Game.sprawdzPunkty());
@@ -39,7 +36,7 @@ namespace Projekt
 
         //Zakończenie rozgrywki
         void gameover(double pkt) {
-            speed = 0;
+            Game.gameOver();
             label2.Visible = true;
             label1.Visible = false;
             Auto.Visible = false;
@@ -72,10 +69,8 @@ namespace Projekt
         
 
         //zawijanie kanistrow i interakcje z samochodem
-        Random rand = new Random();
-        int x, y;
-        int temp =0;
-        void kanister(int speed) {
+        
+        void kanister(int speed){
             if (Kanister.Left >= -180) { Kanister.Left += speed; }
             else {
                 x= 1300;
@@ -83,35 +78,13 @@ namespace Projekt
                 Kanister.Location = new Point(x, y);
             }
             if (Auto.Bounds.IntersectsWith(Kanister.Bounds)) {
-                temp++;
-                pkt++;
-               
-                if(paliwo < 100)
-                {
-                    label1.ForeColor = Color.Violet;
-                    if (paliwo > 70) { paliwo = 100; } 
-                    else paliwo += 30;
-                }
 
-                //bonusy ułatwiające grę
-
-                if (temp == 10)
-                {
-                    paliwo = 150;
-                }
-                if (temp == 20)
-                {
-                    paliwo = 180; 
-                }
-                if (temp == 30)
-                {
-                    enemie_speed = -speed;
-                    temp = 0; 
-                }
+                //gdy zebrano kanister
+                label1.ForeColor=Game.zebranoKanister();    
                 
 
                 //zmiana napisu
-                Punkty.Text = "Punkty= " + pkt;
+                Punkty.Text = "Punkty= " + Game.sprawdzPunkty();
 
                 //losowanie nowej lokalizacji kanistra
                 x = 1680;
@@ -127,24 +100,24 @@ namespace Projekt
         }
 
         //zachowanie przeszkody
-        void przeszkoda(int enemie_speed)
-        {
+        //void przeszkoda(int enemie_speed)
+        //{
             //ustanowienie maksymalnej prędkości i losowanie nowego położenia przeszkody
-            if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
-            else
-            {
-                if(enemie_speed < 70) { enemie_speed += 10; }
-                x = 1500;
-                y = rand.Next(100, 700);
-                Przeszkoda.Location = new Point(x, y);
-            }
+           // if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
+           // else
+          //  {
+            //    if(enemie_speed < 70) { enemie_speed += 10; }
+           ///     x = 1500;
+          //      y = rand.Next(100, 700);
+          //      Przeszkoda.Location = new Point(x, y);
+          //  }
             //zachowanie przy zetknięciu z graczem
-            if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
-            {
-                gameover(pkt);
-            }
+          //  if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
+          //  {
+               /// gameover(pkt);
+         //   }
 
-        }
+       // }
 
         private void button2_Click(object sender, EventArgs e)
         {

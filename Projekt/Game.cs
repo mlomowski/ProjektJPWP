@@ -12,17 +12,19 @@ namespace Projekt
         public int pkt;
         public int speed;
         public Gracz gracz;
+        public Kanister kanister;
 
         public Game()
         {
+            this.kanister = new Kanister();
             this.pkt = 0;
-            this.gracz = new Gracz();
+            this.gracz = new Gracz(100);
             this.speed = 20;
         }
 
         public void Update()
         {
-                gracz.zmianaPaliwa();
+                gracz.zmianaPaliwa(); 
         }
 
         public Color kolorPaliwa()
@@ -43,20 +45,39 @@ namespace Projekt
             return pkt;
         }
 
+       public int sprawdzSzybkoscGry()
+        {
+            return speed;
+        }
+        public int sprawdzSzybkoscKanistra()
+        {
+            int temp = kanister.sprawdzSzybkosc();
+            return temp;
+        }
+
+
+
         public double sprawdzPaliwo()
         {
             double stanPaliwa = gracz.getPaliwo();
             return stanPaliwa;
         }
 
-        public int sprawdzSzybkość()
+      
+
+        public Color zebranoKanister()
         {
-            return speed;
+            Color color = Color.Violet;
+            pkt++;
+            gracz.setPaliwo();
+            return color;
         }
 
-
-
-
+        public int gameOver()
+        {
+            speed = 0;
+            return speed;
+        }
 
     } 
 }

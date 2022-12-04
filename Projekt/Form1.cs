@@ -1,53 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projekt
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
         public static int pkt = 0;
         public static double paliwo = 100;
         public static int speed = 20;
-        public static int enemie_speed = speed;
+        public static int enemie_speed = 20;
+        public Game Game;
+        public Gracz gracz;
+
+
+        public Form1()
+        {
+            InitializeComponent();
+            this.Game = new Game();
+            
+        }
+   
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //ruch o -10 i zmniejszanie paliwa
-            paliwo-=0.6;
-            if(paliwo > 100) { label1.ForeColor = Color.DarkOrange; }
-            if (paliwo < 100 && paliwo > 50) { label1.ForeColor = Color.Green; }
-            if (paliwo > 30 && paliwo < 50) { label1.ForeColor = Color.Yellow; }
-            if (paliwo < 30) label1.ForeColor = Color.Red;
-
-            //zakończenie gry gdy paliwo spadnie poniżej 1 lub gra dalej
-            if (paliwo < 1)
+            //sprawdzanie stanu paliwa i przypisanie koloru do aktualnej wartości, jeżeli kolor to czarny to przerwij rozgrywkę
+            if (Game.sprawdzPaliwo() > 0)
             {
-                gameover(pkt);
+                label1.ForeColor = Game.kolorPaliwa();
+                label1.Text = "Paliwo= " + Math.Round(Game.sprawdzPaliwo());
+                Game.Update();
+                droga(-Game.sprawdzSzybkość());
             }
             else {
-                //wypisanie zaokrąglonej do liczby całkowitej wartości paliwa
-                label1.Text = "Paliwo= " + Math.Round(paliwo);
-                
-                droga(-speed);
-                kanister(-speed-15);
-                przeszkoda(-enemie_speed);
-                
+                gameover(Game.sprawdzPunkty());
             }
       
         }
 
         //Zakończenie rozgrywki
-        void gameover(int pkt) {
+        void gameover(double pkt) {
             speed = 0;
             label2.Visible = true;
             label1.Visible = false;

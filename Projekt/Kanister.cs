@@ -10,10 +10,10 @@ namespace Projekt
         {
         int paliwo;
         int szybkosc;
-        public Kanister()
+        public Kanister(int speed)
         {
             this.paliwo = 30;
-            this.szybkosc = 30;
+            this.szybkosc = speed+20;
         }
 
 
@@ -21,7 +21,7 @@ namespace Projekt
             return paliwo; 
         }
 
-        public int sprawdzSzybkosc()
+        public int getSpeed()
         {
             return szybkosc;
         }

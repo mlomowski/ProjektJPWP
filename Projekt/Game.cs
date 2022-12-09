@@ -10,13 +10,15 @@ namespace Projekt
     public class Game
     {
         public int pkt;
-        public int speed;
+        public int speed=30;
         public Gracz gracz;
         public Kanister kanister;
+        public Przeszkoda przeszkoda;
 
         public Game()
         {
-            this.kanister = new Kanister();
+            this.kanister = new Kanister(speed);
+            this.przeszkoda = new Przeszkoda(speed);
             this.pkt = 0;
             this.gracz = new Gracz();
             this.speed = 20;
@@ -24,7 +26,7 @@ namespace Projekt
 
         public void Update()
         {
-                gracz.zmianaPaliwa(); 
+                gracz.zmianaPaliwa();
         }
 
         public Color kolorPaliwa()
@@ -51,7 +53,13 @@ namespace Projekt
         }
         public int sprawdzSzybkoscKanistra()
         {
-            int temp = kanister.sprawdzSzybkosc();
+            int temp = kanister.getSpeed();
+            return temp;
+        }
+
+        public int sprawdzSzybkoscPrzeszody()
+        {
+            int temp = przeszkoda.getSpeed();
             return temp;
         }
 
@@ -63,7 +71,14 @@ namespace Projekt
             return stanPaliwa;
         }
 
-
+        public void zwiekszSzybkosc()
+        {
+            if(speed < 60)
+            {
+                przeszkoda.setSpeed();
+            }
+            
+        }
         int temp =0;
         public Color zebranoKanister()
         {
@@ -113,6 +128,7 @@ namespace Projekt
             speed = 0;
             return speed;
         }
+
 
     } 
 }

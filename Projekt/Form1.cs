@@ -16,7 +16,7 @@ namespace Projekt
             InitializeComponent();
             this.Game = new Game();
         }
-   
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //sprawdzanie stanu paliwa i przypisanie koloru do aktualnej wartości, jeżeli kolor to czarny to przerwij rozgrywkę
@@ -25,13 +25,14 @@ namespace Projekt
                 label1.ForeColor = Game.kolorPaliwa();
                 label1.Text = "Paliwo= " + Math.Round(Game.sprawdzPaliwo());
                 Game.Update();
-                droga(-Game.sprawdzSzybkoscGry());
+                droga(-Game.sprawdzSzybkoscPrzeszody()-5);
                 kanister(-Game.sprawdzSzybkoscKanistra());
+                przeszkoda(-Game.sprawdzSzybkoscPrzeszody());
             }
             else {
                 gameover(Game.sprawdzPunkty());
             }
-      
+
         }
 
         //Zakończenie rozgrywki
@@ -43,7 +44,7 @@ namespace Projekt
             timer1.Enabled = false;
             Przeszkoda.Visible = false;
             Kanister.Visible = false;
-         
+
         }
 
         //ruch pasow
@@ -62,26 +63,26 @@ namespace Projekt
 
             if (pictureBox5.Left >= -180) { pictureBox5.Left += speed; }
             else pictureBox5.Left = 1280;
-            
+
             if (pictureBox6.Left >= -180) { pictureBox6.Left += speed; }
             else pictureBox6.Left = 1280;
         }
-        
+
 
         //zawijanie kanistrow i interakcje z samochodem
-        
-        void kanister(int speed){
+
+        void kanister(int speed) {
             if (Kanister.Left >= -180) { Kanister.Left += speed; }
             else {
-                x= 1300;
+                x = 1300;
                 y = rand.Next(100, 700);
                 Kanister.Location = new Point(x, y);
             }
             if (Auto.Bounds.IntersectsWith(Kanister.Bounds)) {
 
                 //gdy zebrano kanister
-                label1.ForeColor=Game.zebranoKanister();    
-                
+                label1.ForeColor = Game.zebranoKanister();
+
 
                 //zmiana napisu
                 Punkty.Text = "Punkty= " + Game.sprawdzPunkty();
@@ -92,7 +93,7 @@ namespace Projekt
                 Kanister.Location = new Point(x, y);
 
                 //warunek sprawdzający czy kanister nie generuje się na przeszkodzie
-                while(Kanister.Location== Przeszkoda.Location)
+                while (Kanister.Location == Przeszkoda.Location)
                 {
                     Kanister.Location = new Point(x, y);
                 }
@@ -100,25 +101,26 @@ namespace Projekt
         }
 
         //zachowanie przeszkody
-        //void przeszkoda(int enemie_speed)
-        //{
+        void przeszkoda(int enemie_speed)
+        {
             //ustanowienie maksymalnej prędkości i losowanie nowego położenia przeszkody
-           // if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
-           // else
-          //  {
-            //    if(enemie_speed < 70) { enemie_speed += 10; }
-           ///     x = 1500;
-          //      y = rand.Next(100, 700);
-          //      Przeszkoda.Location = new Point(x, y);
-          //  }
+            if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
+            else
+            {
+                if (enemie_speed < 70) { enemie_speed += 10; }
+                x = 1500;
+                y = rand.Next(100, 700);
+                Przeszkoda.Location = new Point(x, y);
+                Game.zwiekszSzybkosc();
+            }
             //zachowanie przy zetknięciu z graczem
-          //  if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
-          //  {
-               /// gameover(pkt);
-         //   }
+            if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
+            {
+                gameover(Game.sprawdzPunkty());
+            }
 
-       // }
-
+        }
+    
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Restart();

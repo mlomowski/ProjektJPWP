@@ -95,6 +95,7 @@ namespace Projekt
                 //warunek sprawdzający czy kanister nie generuje się na przeszkodzie
                 while (Kanister.Location == Przeszkoda.Location)
                 {
+                    y = rand.Next(100, 700);
                     Kanister.Location = new Point(x, y);
                 }
             }

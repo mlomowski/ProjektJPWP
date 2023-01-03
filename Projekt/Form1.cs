@@ -9,7 +9,7 @@ namespace Projekt
         public Game Game;
         Random rand = new Random();
         int x, y;
-
+        int ctr = 0;
 
         public Form1()
         {
@@ -39,12 +39,12 @@ namespace Projekt
         void gameover(double pkt) {
             Game.gameOver();
             label2.Visible = true;
+            button1.Visible = true;
             label1.Visible = false;
             Auto.Visible = false;
             timer1.Enabled = false;
             Przeszkoda.Visible = false;
             Kanister.Visible = false;
-
         }
 
         //ruch pasow
@@ -125,6 +125,22 @@ namespace Projekt
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ctr == 0)
+            {
+                ctr = 1;
+                label3.Text = Game.czytajWynik();
+                label3.Visible = true;
+            }
+            else 
+            {
+                ctr = 0;
+                label3.Visible = false;
+            }
+
         }
 
 

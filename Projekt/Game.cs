@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ namespace Projekt
         public Gracz gracz;
         public Kanister kanister;
         public Przeszkoda przeszkoda;
-
         public Game()
         {
             this.kanister = new Kanister(speed);
@@ -123,8 +123,31 @@ namespace Projekt
 
         }
 
+        public String czytajWynik()
+        {
+       
+            StreamReader reader = new StreamReader("Tabela.txt");
+            String wynik;
+            wynik = reader.ReadLine();
+            reader.Close();
+            return wynik;
+        }
+
+        public void zapiszWynik() 
+        {
+            StreamWriter writer = new StreamWriter("Tabela.txt");
+            writer.WriteLine(pkt);
+            writer.Close();
+        }
+
+
         public int gameOver()
         {
+            int temp = Int32.Parse(czytajWynik());
+            if (pkt > temp) 
+            {
+                zapiszWynik();
+            }
             speed = 0;
             return speed;
         }

@@ -34,7 +34,6 @@ namespace Projekt
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -51,7 +50,6 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).BeginInit();
@@ -64,7 +62,7 @@ namespace Projekt
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Enabled = false;
-            this.pictureBox2.Location = new System.Drawing.Point(490, 478);
+            this.pictureBox2.Location = new System.Drawing.Point(640, 478);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(190, 40);
             this.pictureBox2.TabIndex = 0;
@@ -74,7 +72,7 @@ namespace Projekt
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(720, 478);
+            this.pictureBox3.Location = new System.Drawing.Point(960, 478);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(190, 40);
             this.pictureBox3.TabIndex = 0;
@@ -84,21 +82,11 @@ namespace Projekt
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Enabled = false;
-            this.pictureBox4.Location = new System.Drawing.Point(958, 478);
+            this.pictureBox4.Location = new System.Drawing.Point(1280, 478);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(190, 40);
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Enabled = false;
-            this.pictureBox5.Location = new System.Drawing.Point(1200, 478);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(190, 40);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
             // 
             // timer1
             // 
@@ -109,7 +97,7 @@ namespace Projekt
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(237, 478);
+            this.pictureBox1.Location = new System.Drawing.Point(320, 478);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(190, 40);
             this.pictureBox1.TabIndex = 0;
@@ -119,7 +107,7 @@ namespace Projekt
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(-15, 478);
+            this.pictureBox6.Location = new System.Drawing.Point(0, 478);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(190, 40);
             this.pictureBox6.TabIndex = 0;
@@ -172,7 +160,7 @@ namespace Projekt
             // 
             this.label2.BackColor = System.Drawing.Color.DarkRed;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(446, 478);
+            this.label2.Location = new System.Drawing.Point(445, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(350, 70);
             this.label2.TabIndex = 5;
@@ -215,7 +203,7 @@ namespace Projekt
             // 
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(446, 561);
+            this.label3.Location = new System.Drawing.Point(307, 906);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(350, 70);
             this.label3.TabIndex = 10;
@@ -249,7 +237,6 @@ namespace Projekt
             this.Controls.Add(this.Punkty);
             this.Controls.Add(this.Kanister);
             this.Controls.Add(this.Auto);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -263,7 +250,6 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).EndInit();
@@ -279,7 +265,6 @@ namespace Projekt
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox6;

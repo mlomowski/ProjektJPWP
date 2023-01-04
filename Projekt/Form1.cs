@@ -51,22 +51,19 @@ namespace Projekt
 
         //ruch pasow
         void droga(int speed) {
-            if (pictureBox1.Left >= -180) { pictureBox1.Left += speed; }
+            if (pictureBox1.Left >= -190) { pictureBox1.Left += speed; }
             else pictureBox1.Left = 1280;
 
-            if (pictureBox2.Left >= -180) { pictureBox2.Left += speed; }
+            if (pictureBox2.Left >= -190) { pictureBox2.Left += speed; }
             else pictureBox2.Left = 1280;
 
-            if (pictureBox3.Left >= -180) { pictureBox3.Left += speed; }
+            if (pictureBox3.Left >= -190) { pictureBox3.Left += speed; }
             else pictureBox3.Left = 1280;
 
-            if (pictureBox4.Left >= -180) { pictureBox4.Left += speed; }
+            if (pictureBox4.Left >= -190) { pictureBox4.Left += speed; }
             else pictureBox4.Left = 1280;
 
-            if (pictureBox5.Left >= -180) { pictureBox5.Left += speed; }
-            else pictureBox5.Left = 1280;
-
-            if (pictureBox6.Left >= -180) { pictureBox6.Left += speed; }
+            if (pictureBox6.Left >= -190) { pictureBox6.Left += speed; }
             else pictureBox6.Left = 1280;
         }
 
@@ -78,6 +75,10 @@ namespace Projekt
             else {
                 x = 1300;
                 y = rand.Next(100, 700);
+                while( y > 350 && y < 720)
+                {
+                    y = rand.Next(100, 700);
+                }
                 Kanister.Location = new Point(x, y);
             }
             if (Auto.Bounds.IntersectsWith(Kanister.Bounds)) {
@@ -92,6 +93,10 @@ namespace Projekt
                 //losowanie nowej lokalizacji kanistra
                 x = 1680;
                 y = rand.Next(100, 700);
+                while ( y > 250 && y < 600)
+                {
+                    y = rand.Next(100, 750);
+                }
                 Kanister.Location = new Point(x, y);
 
                 //warunek sprawdzający czy kanister nie generuje się na przeszkodzie
@@ -106,11 +111,13 @@ namespace Projekt
         //zachowanie przeszkody
         void przeszkoda(int enemie_speed)
         {
-            
+            //Losowanie przeszody oraz położenia przeszkody
             if (los == 1)
             {
+                //ukrywam niepotrzebna przeszkode
                 Przeszkoda.Visible = true;
                 Przeszkoda2.Visible = false;
+       
                 if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
                 else
                 {
@@ -125,13 +132,11 @@ namespace Projekt
 
 
             }
-            //ustanowienie maksymalnej prędkości i losowanie nowego położenia przeszkody
 
             else {
 
                 Przeszkoda.Visible = false;
                 Przeszkoda2.Visible = true;
-
                 if (Przeszkoda2.Left >= -580) { Przeszkoda2.Left += enemie_speed; }
                 else
                 {
@@ -162,7 +167,7 @@ namespace Projekt
         {
             Application.Restart();
         }
-
+        //guzik do odczytania najwyzszego wyniku
         private void button1_Click(object sender, EventArgs e)
         {
             if (ctr == 0)

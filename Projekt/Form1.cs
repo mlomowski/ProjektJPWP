@@ -65,6 +65,13 @@ namespace Projekt
 
             if (pictureBox6.Left >= -190) { pictureBox6.Left += speed; }
             else pictureBox6.Left = 1280;
+
+            if (pictureBox7.Left >= -190) { pictureBox7.Left += speed; }
+            else pictureBox7.Left = 1280;
+
+            if (pictureBox8.Left >= -190) { pictureBox8.Left += speed; }
+            else pictureBox8.Left = 1280;
+
         }
 
 

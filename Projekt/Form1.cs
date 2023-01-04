@@ -10,6 +10,7 @@ namespace Projekt
         Random rand = new Random();
         int x, y;
         int ctr = 0;
+        int los = 1;
 
         public Form1()
         {
@@ -44,6 +45,7 @@ namespace Projekt
             Auto.Visible = false;
             timer1.Enabled = false;
             Przeszkoda.Visible = false;
+            Przeszkoda2.Visible = false;
             Kanister.Visible = false;
         }
 
@@ -104,18 +106,52 @@ namespace Projekt
         //zachowanie przeszkody
         void przeszkoda(int enemie_speed)
         {
-            //ustanowienie maksymalnej prędkości i losowanie nowego położenia przeszkody
-            if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
-            else
+            
+            if (los == 1)
             {
-                if (enemie_speed < 70) { enemie_speed += 10; }
-                x = 1500;
-                y = rand.Next(100, 700);
-                Przeszkoda.Location = new Point(x, y);
-                Game.zwiekszSzybkosc();
+                Przeszkoda.Visible = true;
+                Przeszkoda2.Visible = false;
+                if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
+                else
+                {
+
+                    if (enemie_speed < 70) { enemie_speed += 10; }
+                    los = rand.Next(1, 3);
+                    x = 1500;
+                    y = rand.Next(100, 700);
+                    Przeszkoda.Location = new Point(x, y);
+                    Game.zwiekszSzybkosc();
+                }
+
+
             }
+            //ustanowienie maksymalnej prędkości i losowanie nowego położenia przeszkody
+
+            else {
+
+                Przeszkoda.Visible = false;
+                Przeszkoda2.Visible = true;
+
+                if (Przeszkoda2.Left >= -580) { Przeszkoda2.Left += enemie_speed; }
+                else
+                {
+                    if (enemie_speed < 70) { enemie_speed += 10; }
+                    los = rand.Next(1, 3);
+                    x = 1500;
+                    y = rand.Next(100, 700);
+                    Przeszkoda2.Location = new Point(x, y);
+                    Game.zwiekszSzybkosc();
+                }
+
+            }
+           
+
             //zachowanie przy zetknięciu z graczem
             if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
+            {
+                gameover(Game.sprawdzPunkty());
+            }
+            if (Auto.Bounds.IntersectsWith(Przeszkoda2.Bounds))
             {
                 gameover(Game.sprawdzPunkty());
             }

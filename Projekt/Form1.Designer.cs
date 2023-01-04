@@ -47,6 +47,7 @@ namespace Projekt
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.Przeszkoda2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -56,6 +57,7 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Kanister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Przeszkoda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Przeszkoda2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -194,7 +196,7 @@ namespace Projekt
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 50);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Tabela wyników";
+            this.button1.Text = "Najwyższy Wynik";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -221,12 +223,23 @@ namespace Projekt
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Visible = false;
             // 
+            // Przeszkoda2
+            // 
+            this.Przeszkoda2.BackColor = System.Drawing.Color.White;
+            this.Przeszkoda2.Enabled = false;
+            this.Przeszkoda2.Location = new System.Drawing.Point(1133, 524);
+            this.Przeszkoda2.Name = "Przeszkoda2";
+            this.Przeszkoda2.Size = new System.Drawing.Size(206, 120);
+            this.Przeszkoda2.TabIndex = 11;
+            this.Przeszkoda2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.Controls.Add(this.Przeszkoda2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -256,6 +269,7 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.Auto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Kanister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Przeszkoda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Przeszkoda2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,6 +292,7 @@ namespace Projekt
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox Przeszkoda2;
     }
 }
 

@@ -18,6 +18,11 @@ namespace Projekt
             this.Game = new Game();
         }
 
+        /// <summary>
+        /// W tej pętli wykonywany jest ruch elementów 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             //sprawdzanie stanu paliwa i przypisanie koloru do aktualnej wartosci
@@ -37,6 +42,11 @@ namespace Projekt
 
         }
 
+
+        /// <summary>
+        /// Zakończenie gry
+        /// </summary>
+        /// <param name="pkt"></param>
         //Zakonczenie rozgrywki
         void gameover(double pkt) {
             Game.gameOver();
@@ -50,7 +60,10 @@ namespace Projekt
             Kanister.Visible = false;
         }
 
-        //ruch pasow
+        /// <summary>
+        /// ruch pasów oraz ich zapętlenie
+        /// </summary>
+        /// <param name="speed"></param>
         void droga(int speed) {
             //jezeli sa dalej niz na -190 to porusz o speed, jezeli nie to ustaw pozycje na 1280
             if (pictureBox1.Left >= -190) { pictureBox1.Left += speed; }
@@ -77,7 +90,10 @@ namespace Projekt
         }
 
 
-        //zawijanie kanistrow i interakcje z samochodem
+        /// <summary>
+        /// zachhowanie kanistra, co jeżeli kanister zniknie lub zostanie zebrany, interakcje z kanistrem
+        /// </summary>
+        /// <param name="speed"></param>
 
         void kanister(int speed) {
             if (Kanister.Left >= -180) { Kanister.Left += speed; }
@@ -120,7 +136,10 @@ namespace Projekt
             }
         }
 
-        //zachowanie przeszkody
+        /// <summary>
+        /// zachowanie przeszkody
+        /// </summary>
+        /// <param name="enemie_speed"></param>
         void przeszkoda(int enemie_speed)
         {
             //Losowanie przeszody oraz położenia przeszkody
@@ -176,12 +195,20 @@ namespace Projekt
 
         }
     
-        //guzik restartu
+        /// <summary>
+        /// guzik reset
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
-        //guzik do odczytania najwyzszego wyniku
+        /// <summary>
+        /// guzik do sprawdzania najwyższego wyniku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (ctr == 0)
@@ -200,7 +227,11 @@ namespace Projekt
 
 
 
-        //obsługa myszy
+        /// <summary>
+        /// obsługa myszy oraz wyśrodkowanie samochhodu na kursor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             this.Cursor = new Cursor(Cursor.Current.Handle);

@@ -20,12 +20,17 @@ namespace Projekt
             this.gracz = new Gracz();
             this.speed = 20;
         }
-
+        /// <summary>
+        /// zmniejszanie paliwa
+        /// </summary>
         public void Update()
         {
                 gracz.zmianaPaliwa();
         }
-
+        /// <summary>
+        /// ustalenie koloru paliwa
+        /// </summary>
+        /// <returns>kolor paliwa</returns>
         public Color kolorPaliwa()
         {
             //dodanie zmiennej kolor i zwrócenie wartości koloru zależnie od paliwa
@@ -38,22 +43,35 @@ namespace Projekt
             if (stanPaliwa < 1) { kolor = Color.Black; }
             return kolor;
         }
-
+        /// <summary>
+        /// sprawdza punkty
+        /// </summary>
+        /// <returns>punkty</returns>
       public double sprawdzPunkty()
         {
             return pkt;
         }
-
+        /// <summary>
+        /// sprawdza szybkosc gry
+        /// </summary>
+        /// <returns>szybkosc gry</returns>
        public int sprawdzSzybkoscGry()
         {
             return speed;
         }
+        /// <summary>
+        /// sprawdza szybkosc kanistra
+        /// </summary>
+        /// <returns>szybkosc kanistra</returns>
         public int sprawdzSzybkoscKanistra()
         {
             int temp = kanister.getSpeed();
             return temp;
         }
-
+        /// <summary>
+        /// sprawdza szybkosc przeszkod
+        /// </summary>
+        /// <returns>szybkosc przeszkod</returns>
         public int sprawdzSzybkoscPrzeszody()
         {
             int temp = przeszkoda.getSpeed();
@@ -61,13 +79,18 @@ namespace Projekt
         }
 
 
-
+        /// <summary>
+        /// sprawdza ilość paliwa
+        /// </summary>
+        /// <returns>ilość paliwa</returns>
         public double sprawdzPaliwo()
         {
             double stanPaliwa = gracz.getPaliwo();
             return stanPaliwa;
         }
-
+        /// <summary>
+        /// zwiększa szybkość gry
+        /// </summary>
         public void zwiekszSzybkosc()
         {
             if(speed < 60)
@@ -78,7 +101,10 @@ namespace Projekt
         }
         int temp =0;
 
-       
+       /// <summary>
+       /// sygnalizacja zebrania kanistra, dodanie punktu oraz bonusu
+       /// </summary>
+       /// <returns>kolor paliwa (sygnalizator zebrania)</returns>
         public Color zebranoKanister()
         {
             //sygnalizator zebrania kanistra i dodanie punktu
@@ -122,7 +148,10 @@ namespace Projekt
                 return color;
 
         }
-        //przeczytanie najwyzszego wyniku
+        /// <summary>
+        /// przeczytanie zachwowanej w pliku wartości (najwyższy wynik)
+        /// </summary>
+        /// <returns>wynik</returns>
         public String czytajWynik()
         {
        
@@ -132,7 +161,9 @@ namespace Projekt
             reader.Close();
             return wynik;
         }
-        //zapis najwyzszego wyniku
+        /// <summary>
+        /// zapisanie nowego najwyższego wyniku do pliku
+        /// </summary>
         public void zapiszWynik() 
         {
             StreamWriter writer = new StreamWriter("Tabela.txt");
@@ -140,7 +171,10 @@ namespace Projekt
             writer.Close();
         }
 
-        
+        /// <summary>
+        /// sprawdzenie czy nowy wynik jest większy od poprzedniego, wtedy nadpisanie wyniku oraz zmiana szybkosci gry na 0
+        /// </summary>
+        /// <returns>szybkosc gry</returns>
         public int gameOver()
         {
             int temp = Int32.Parse(czytajWynik());

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Projekt
 {
@@ -80,8 +77,11 @@ namespace Projekt
             
         }
         int temp =0;
+
+       
         public Color zebranoKanister()
         {
+            //sygnalizator zebrania kanistra i dodanie punktu
             Color color = Color.Violet;
             pkt++;
             temp++;
@@ -122,7 +122,7 @@ namespace Projekt
                 return color;
 
         }
-
+        //przeczytanie najwyzszego wyniku
         public String czytajWynik()
         {
        
@@ -132,7 +132,7 @@ namespace Projekt
             reader.Close();
             return wynik;
         }
-
+        //zapis najwyzszego wyniku
         public void zapiszWynik() 
         {
             StreamWriter writer = new StreamWriter("Tabela.txt");
@@ -140,10 +140,11 @@ namespace Projekt
             writer.Close();
         }
 
-
+        
         public int gameOver()
         {
             int temp = Int32.Parse(czytajWynik());
+            //zapisywany jest tylko wynik wyzszy niz poprzedni
             if (pkt > temp) 
             {
                 zapiszWynik();

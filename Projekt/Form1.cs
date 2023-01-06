@@ -20,7 +20,7 @@ namespace Projekt
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //sprawdzanie stanu paliwa i przypisanie koloru do aktualnej wartości, jeżeli kolor to czarny to przerwij rozgrywkę
+            //sprawdzanie stanu paliwa i przypisanie koloru do aktualnej wartosci
             if (Game.sprawdzPaliwo() > 0)
             {
                 label1.ForeColor = Game.kolorPaliwa();
@@ -30,13 +30,14 @@ namespace Projekt
                 kanister(-Game.sprawdzSzybkoscKanistra());
                 przeszkoda(-Game.sprawdzSzybkoscPrzeszody());
             }
+            //jezeli paliwo to 0 to koniec gry
             else {
                 gameover(Game.sprawdzPunkty());
             }
 
         }
 
-        //Zakończenie rozgrywki
+        //Zakonczenie rozgrywki
         void gameover(double pkt) {
             Game.gameOver();
             label2.Visible = true;
@@ -51,6 +52,7 @@ namespace Projekt
 
         //ruch pasow
         void droga(int speed) {
+            //jezeli sa dalej niz na -190 to porusz o speed, jezeli nie to ustaw pozycje na 1280
             if (pictureBox1.Left >= -190) { pictureBox1.Left += speed; }
             else pictureBox1.Left = 1280;
 
@@ -80,17 +82,20 @@ namespace Projekt
         void kanister(int speed) {
             if (Kanister.Left >= -180) { Kanister.Left += speed; }
             else {
+                //jezeli uciekl kanister
                 x = 1300;
                 y = rand.Next(100, 700);
+                //kanister pojawia sie albo nad albo pod pasami
                 while( y > 350 && y < 720)
                 {
                     y = rand.Next(100, 700);
                 }
                 Kanister.Location = new Point(x, y);
             }
+            //zebranie kanistra
             if (Auto.Bounds.IntersectsWith(Kanister.Bounds)) {
 
-                //gdy zebrano kanister
+                //powiadomienie o zebranym kanistrze
                 label1.ForeColor = Game.zebranoKanister();
 
 
@@ -124,12 +129,13 @@ namespace Projekt
                 //ukrywam niepotrzebna przeszkode
                 Przeszkoda.Visible = true;
                 Przeszkoda2.Visible = false;
-       
+                
                 if (Przeszkoda.Left >= -580) { Przeszkoda.Left += enemie_speed; }
                 else
                 {
 
                     if (enemie_speed < 70) { enemie_speed += 10; }
+                    //losuje nowa przeszkode
                     los = rand.Next(1, 3);
                     x = 1500;
                     y = rand.Next(100, 700);
@@ -158,7 +164,7 @@ namespace Projekt
             }
            
 
-            //zachowanie przy zetknięciu z graczem
+            //zachowanie przy zetknieciu z graczem
             if (Auto.Bounds.IntersectsWith(Przeszkoda.Bounds))
             {
                 gameover(Game.sprawdzPunkty());
@@ -170,6 +176,7 @@ namespace Projekt
 
         }
     
+        //guzik restartu
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Restart();

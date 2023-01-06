@@ -204,7 +204,7 @@ namespace Projekt
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             this.Cursor = new Cursor(Cursor.Current.Handle);
-            Auto.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
+            Auto.Location = new Point(Cursor.Position.X-150, Cursor.Position.Y-100);
         }
     }
 }

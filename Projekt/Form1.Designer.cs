@@ -111,6 +111,7 @@ namespace Projekt
             // 
             this.Auto.BackColor = System.Drawing.Color.Transparent;
             this.Auto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Auto.Enabled = false;
             this.Auto.Image = ((System.Drawing.Image)(resources.GetObject("Auto.Image")));
             this.Auto.Location = new System.Drawing.Point(146, 234);
             this.Auto.Name = "Auto";

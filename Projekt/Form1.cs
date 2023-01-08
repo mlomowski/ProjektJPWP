@@ -6,6 +6,7 @@ namespace Projekt
 {
     public partial class Form1 : Form
     {
+        
         public Game Game;
         Random rand = new Random();
         int x, y;
@@ -14,6 +15,8 @@ namespace Projekt
 
         public Form1()
         {
+            WindowState = FormWindowState.Maximized;
+            TopMost = true;
             InitializeComponent();
             this.Game = new Game();
         }

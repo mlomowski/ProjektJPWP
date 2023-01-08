@@ -69,25 +69,25 @@ namespace Projekt
         /// <param name="speed"></param>
         void droga(int speed) {
             //jezeli sa dalej niz na -190 to porusz o speed, jezeli nie to ustaw pozycje na 1280
-            if (pictureBox1.Left >= -190) { pictureBox1.Left += speed; }
+            if (pictureBox1.Left >= -180) { pictureBox1.Left += speed; }
             else pictureBox1.Left = 1280;
 
-            if (pictureBox2.Left >= -190) { pictureBox2.Left += speed; }
+            if (pictureBox2.Left >= -180) { pictureBox2.Left += speed; }
             else pictureBox2.Left = 1280;
 
-            if (pictureBox3.Left >= -190) { pictureBox3.Left += speed; }
+            if (pictureBox3.Left >= -180) { pictureBox3.Left += speed; }
             else pictureBox3.Left = 1280;
 
-            if (pictureBox4.Left >= -190) { pictureBox4.Left += speed; }
+            if (pictureBox4.Left >= -180) { pictureBox4.Left += speed; }
             else pictureBox4.Left = 1280;
 
-            if (pictureBox6.Left >= -190) { pictureBox6.Left += speed; }
+            if (pictureBox6.Left >= -180) { pictureBox6.Left += speed; }
             else pictureBox6.Left = 1280;
 
-            if (pictureBox7.Left >= -190) { pictureBox7.Left += speed; }
+            if (pictureBox7.Left >= -180) { pictureBox7.Left += speed; }
             else pictureBox7.Left = 1280;
 
-            if (pictureBox8.Left >= -190) { pictureBox8.Left += speed; }
+            if (pictureBox8.Left >= -180) { pictureBox8.Left += speed; }
             else pictureBox8.Left = 1280;
 
         }
